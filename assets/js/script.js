@@ -1,22 +1,37 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
-// Below checks for and (for now) gives response for if a prompt entry is between 8 and 128 characters.
+
+// Below asks for desired length of password, makes sure 
+// it is a number, and stores it as 'response', as long as it is between 
+// 8 and 128 characters.
+function askForLength() {
+	var answer = prompt("Type desired lenght of password between 8 and 128 characters.");
+	// var answer = parseInt(ask);
+	var response;
+	var correct;
+
+		if (Number(answer) == 0) {
+			correct = 'No answer given.';
+			alert(correct);
+		} else if (Number(answer) < 8) {
+			correct = 'Length must be greater or equal to 8.';
+			alert(correct);
+		} else if (Number(answer) > 128) {
+			correct = 'Length must be no more than 128';
+			alert(correct);
+		} else if (Number(answer) >= 8 && Number(answer) <= 128) {
+			response = answer;
+			alert('Thank you!')
+		} else {
+		correct = "You must enter a number";
+		alert(correct);
+	}
+	console.log(response);
+};
+
 
 function generatePassword() {
-	var length = prompt("Type desired lenght of password between 8 and 128 characters.").length;
-	var response;
-
-	if (length == 0) {
-		response = 'No answer given.';
-	} else if (length < 8) {
-		response = 'Password is too short.';
-	} else if (length > 128) {
-		response = 'Password is too long.';
-	} else {
-		response = 'Password is just right.';
-	}
-	alert(response);
-
+	askForLength();
 }
 
 // Write password to the #password input
