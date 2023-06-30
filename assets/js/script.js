@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
+// Below checks for and (for now) gives response for if a prompt entry is between 8 and 128 characters.
 
 function generatePassword() {
 	var length = prompt("Type desired lenght of password between 8 and 128 characters.").length;
