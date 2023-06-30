@@ -21,7 +21,6 @@ function askForLength() {
 			alert(correct);
 		} else if (Number(answer) >= 8 && Number(answer) <= 128) {
 			response = answer;
-			alert('Thank you!')
 		} else {
 		correct = "You must enter a number";
 		alert(correct);
@@ -29,9 +28,44 @@ function askForLength() {
 	console.log(response);
 };
 
+// Below is a function that will confirm whether or not the user wants to use
+// different types of characters in their password.  At least one of these has to
+// be used, but any or all can be included.
 
+function askForType() {
+	var lowerCase = confirm('Do you want to use lower case letters in your password?');
+	var upperCase = confirm('Do you want to use upper case letters in your password?');
+	var numValue = confirm('Do you want to use numbers in your password?');
+	var specialCharacters = confirm('Do you want to use special characters in your password?');
+
+	if(lowerCase || upperCase || numValue || specialCharacters) {
+		if(lowerCase) {
+			console.log('Lower Case Letters have been selected.');
+		} 
+
+		if(upperCase) {
+			console.log('Upper Case Letters have been selected.');
+		}
+
+		if(numValue) {
+			console.log('Numbers have been selected.');
+		}
+
+		if(specialCharacters) {
+			console.log('Special Characters have been selected.');
+		}
+	} else {
+		alert('You must select at least one type of character to use in your password.')
+	}
+}
+
+
+
+
+// The function below calls the functions we have created above.
 function generatePassword() {
 	askForLength();
+	askForType();
 }
 
 // Write password to the #password input
